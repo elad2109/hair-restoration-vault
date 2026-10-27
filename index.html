@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+  <title>מדריך אסטרטגי: שיקום, עיבוי והשתלת שיער | כספת אישית</title>
+  <style>
+    :root {
+      --bg: #0b1120;
+      --surface: #1e293b;
+      --surface-alt: #0f172a;
+      --card: #1e293b;
+      --border: #334155;
+      --border-subtle: #1e293b;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
+      --accent: #4ade80;
+      --warning: #facc15;
+      --danger: #f87171;
+    }
+    [data-theme="light"] {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-alt: #f1f5f9;
+      --card: #ffffff;
+      --border: #cbd5e1;
+      --border-subtle: #e2e8f0;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --accent: #16a34a;
+      --warning: #ca8a04;
+      --danger: #dc2626;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.65;
+      padding: 24px;
+    }
+    .container {
+      max-width: 1060px;
+      margin: 0 auto;
+    }
+    header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 4px 12px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--primary);
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 600;
+    }
+    .theme-toggle {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .bluf-box {
+      background: rgba(56, 189, 248, 0.08);
+      border-inline-start: 4px solid var(--primary);
+      padding: 16px 20px;
+      border-radius: 8px;
+      margin-top: 14px;
+      font-size: 1.05rem;
+    }
+    .nav-tabs {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 24px;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-tab {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text-muted);
+      padding: 10px 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      transition: all 0.2s ease;
+    }
+    .nav-tab.active, .nav-tab:hover {
+      background: var(--primary);
+      color: #0b1120;
+      border-color: var(--primary);
+    }
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 18px;
+      margin-top: 16px;
+    }
+    .subcard {
+      background: var(--surface-alt);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .subcard h3 {
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      color: var(--primary);
+    }
+    .alert-box {
+      border-radius: 10px;
+      padding: 16px;
+      margin: 16px 0;
+      font-size: 0.95rem;
+    }
+    .alert-warning {
+      background: rgba(250, 204, 21, 0.1);
+      border: 1px solid rgba(250, 204, 21, 0.3);
+      color: var(--warning);
+    }
+    .alert-info {
+      background: rgba(56, 189, 248, 0.1);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--primary);
+    }
+    .alert-danger {
+      background: rgba(248, 113, 113, 0.1);
+      border: 1px solid rgba(248, 113, 113, 0.3);
+      color: var(--danger);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 0.95rem;
+    }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 12px;
+      text-align: right;
+    }
+    th {
+      background: var(--surface-alt);
+      color: var(--primary);
+      font-weight: 600;
+    }
+    ul, ol {
+      padding-right: 20px;
+      margin: 10px 0;
+    }
+    li {
+      margin-bottom: 8px;
+    }
+    .code-block {
+      direction: ltr;
+      text-align: left;
+      background: #050811;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      position: relative;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.8rem;
+      cursor: pointer;
+    }
+    .copy-btn:hover {
+      background: var(--primary);
+      color: #000;
+    }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+
+  <header>
+    <div class="header-top">
+      <span class="badge">תיק רפואי אישי &bull; כספת החלטות</span>
+      <button class="theme-toggle" onclick="toggleTheme()">🌓 החלף מצב תצוגה</button>
+    </div>
+    <h1>תוכנית אסטרטגית: שיקום, עיבוי והשתלת שיער</h1>
+    <p style="color: var(--text-muted); font-size: 0.95rem;">אבחון אישי, השוואת טיפולים תרופתיים, רכש בדבלין מול ישראל, מערכות שיער, ומפת דרכים למרפאות באתונה</p>
+    
+    <div class="bluf-box">
+      <strong>📌 שורה תחתונה:</strong> השתלה בהחלט אפשרית אך מחייבת ביצוע עדין (שיטת DHI) כדי לא לפגוע בשערות קיימות. שיער שיבה הוא יתרון אסתטי שמפחית ניגודיות. את הנסיעה לאתונה מומלץ לנצל אך ורק לבדיקת קרקפת פיזית ולא לניתוח במקביל לשאיבת שומן. בדבלין ניתן לרכוש מינוקסידיל קצף ללא מרשם ולקבל מרשמים דיגיטליים אונליין ב-€25 בקלות.
+    </div>
+  </header>
+
+  <nav class="nav-tabs" id="tabs">
+    <button class="nav-tab active" onclick="showTab('assessment')">1. אבחון הקרקפת והשיער</button>
+    <button class="nav-tab" onclick="showTab('meds')">2. פרוטוקול תרופתי ומשלים</button>
+    <button class="nav-tab" onclick="showTab('dublin-health')">3. דבלין, VHI וישראל</button>
+    <button class="nav-tab" onclick="showTab('hair-systems')">4. פאות ומערכות שיער</button>
+    <button class="nav-tab" onclick="showTab('athens')">5. מפת הדרכים לאתונה</button>
+  </nav>
+
+  <!-- TAB 1: ASSESSMENT -->
+  <section id="tab-assessment" class="section-card">
+    <h2 class="section-title">🔍 אבחון המצב האישי (Scalp & Follicle Profile)</h2>
+    
+    <div class="grid-2">
+      <div class="subcard">
+        <h3>דפוס הדלילות (Diffuse Thinning)</h3>
+        <p>קו השיער הקדמי שמור במבנה טוב, אך קיים דילול מפוזר לאורך מרכז הקרקפת והקודקוד (Mid-scalp / Crown). שקיפות הקרקפת בתאורה עילית נובעת משילוב של שטח מרווח יותר והידקקות בקוטר השערות.</p>
+        <p style="margin-top: 8px;"><strong>משמעות ביולוגית:</strong> רוב הזקיקים באזור אינם מתים אלא ממוזערים (Miniaturized), כלומר הם עדיין פעילים ומסוגלים להגיב לעיבוי.</p>
+      </div>
+
+      <div class="subcard">
+        <h3>השפעת שיער השיבה (מלח-פלפל)</h3>
+        <p><strong>יתרון אופטי:</strong> ניגודיות נמוכה מול עור הקרקפת. בשיער שחור על עור בהיר, כל קרחת זועקת. שיער שיבה יוצר אשליית כיסוי רכה וטבעית יותר גם בצפיפות נמוכה יותר.</p>
+        <p style="margin-top: 8px;"><strong>אתגר כירורגי:</strong> זקיקים לבנים שקופים מתחת למיקרוסקופ ודורשים מיומנות חילוץ גבוהה או צביעת שיער מקדימה באזור התורם כדי למנוע קטיעת שורשים.</p>
+      </div>
+    </div>
+
+    <div class="alert-box alert-warning" style="margin-top: 20px;">
+      <strong>⚠️ סכנת נשירת הלם (Shock Loss):</strong> השתלת שיער לתוך אזור עם שיער קיים דליל נושאת סיכון שהטראומה המקומית או חיתוך תעלות בסקלפל יגרמו לנשירה של השערות המקוריות החלשות. לכן חובה לבחור רופא המשתמש בעטי החדרת זקיקים (Implanter Pen) ישירים בלבד.
+    </div>
+  </section>
+
+  <!-- TAB 2: MEDS -->
+  <section id="tab-meds" class="section-card" style="display: none;">
+    <h2 class="section-title">💊 פרוטוקול תרופתי ומשלים: מעבר ממניעה לעיבוי</h2>
+    
+    <p>אתה כבר נוטל פרופסיה (פינסטריד 1 מ"ג), וזהו צעד קריטי ששומר על המצב מנסיגה נוספת. להלן הדרכים המדעיות להעיר ולעבות את הזקיקים הממוזערים:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>טיפול</th>
+          <th>מנגנון פעולה</th>
+          <th>אפקטיביות ויעילות</th>
+          <th>אופן שימוש וזהירות</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>פינסטריד 1 מ"ג (פרופסיה)</strong></td>
+          <td>חוסם כ-70% מהורמון ה-DHT.</td>
+          <td>מעולה לעצירת נשירה, בינוני בעיבוי שיער שכבר התדלדל.</td>
+          <td>כדור פומי יומי. כבר בשימוש יומיומי אצלך.</td>
+        </tr>
+        <tr>
+          <td><strong>דואוטסטריד 0.5 מ"ג (Avodart)</strong></td>
+          <td>חוסם מעל 90% מה-DHT (חוסם שני אנזימים).</td>
+          <td>יעיל יותר משמעותית מפינסטריד, עשוי להצמיח ולעבות שערות ממוזערות.</td>
+          <td>מחייב מרשם והתייעצות רפואית. מוריד רמות PSA ב-50%.</td>
+        </tr>
+        <tr>
+          <td><strong>מינוקסידיל קצף 5% (Regaine Foam)</strong></td>
+          <td>מרחיב כלי דם מקומיים ומאריך את שלב הגדילה (Anagen).</td>
+          <td>מעבה שערות קיימות ב-15% עד 30% אצל 40%-50% מהאנשים שמגיבים אליו.</td>
+          <td>קצף אינו שמנוני ומתייבש תוך דקה. לא למרוח מיד לאחר מחטים.</td>
+        </tr>
+        <tr>
+          <td><strong>מיקרונידלינג (Dermastamp)</strong></td>
+          <td>גירוי קולגן, זרימת דם ושחרור גורמי גדילה מקומיים.</td>
+          <td>מחקרים מראים הכפלת היעילות של מינוקסידיל בשילוב שבועי.</td>
+          <td>בבית, פעם בשבוע בלבד, עומק 1.0 מ"מ עד 1.5 מ"מ. להמתין 24 שעות לפני מריחה.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="alert-box alert-danger">
+      <strong>הערת בטיחות קרדיווסקולרית:</strong> יש אנשים שנוטלים כדורי מינוקסידיל דרך הפה. היות שמדובר במקור בתרופה להורדת לחץ דם הגורמת להרחבת כלי דם ושינויים בדופק, עבור בעלי רגישות לבבית (כמו מסתם BAV) יש להישאר אך ורק עם קצף מקומי חיצוני.
+    </div>
+  </section>
+
+  <!-- TAB 3: DUBLIN & HEALTH -->
+  <section id="tab-dublin-health" class="section-card" style="display: none;">
+    <h2 class="section-title">🇮🇪 דבלין, ביטוח VHI והשוואה מול ישראל</h2>
+
+    <div class="grid-2">
+      <div class="subcard">
+        <h3>1. רכש מינוקסידיל בדבלין (ללא מרשם)</h3>
+        <p>באירלנד, <strong>קצף מינוקסידיל 5% (Regaine for Men Foam)</strong> נמכר מעבר לדלפק (Over The Counter) ללא צורך במרשם או ביקור רופא.</p>
+        <ul style="margin-top: 8px;">
+          <li>ניתן להיכנס לכל סניף Boots בדבלין (למשל ברחוב Grafton או באזור Grand Canal Dock).</li>
+          <li>מארז של 3 חודשים עולה כ-€65 עד €80.</li>
+          <li>זמין גם במשלוח עד הבית דרך Boots.ie או Chemist Warehouse Ireland.</li>
+        </ul>
+      </div>
+
+      <div class="subcard">
+        <h3>2. מרשמים מקוונים בדבלין (Finasteride / Dutasteride)</h3>
+        <p>אין צורך ללכת לרופא משפחה פיזית ולשלם €70-80 על ביקור. באירלנד פועלים שירותי רפואה מקוונים מורשים ומפוקחים:</p>
+        <ul style="margin-top: 8px;">
+          <li><strong>Webdoctor.ie</strong> או <strong>LloydsPharmacy Online Doctor</strong>.</li>
+          <li>ממלאים שאלון קצר באינטרנט על נשירת שיער (עלות כ-€25-30).</li>
+          <li>רופא אירי בודק ושולח מרשם דיגיטלי ישיר (Healthmail) לבית המרקחת הקרוב לביתך.</li>
+          <li>מחיר פינסטריד גנרי בבית מרקחת: כ-€25-35 לחודש.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-top: 18px;">
+      <div class="subcard">
+        <h3>3. מה המצב מול ביטוח VHI?</h3>
+        <ul>
+          <li><strong>עלות התרופה עצמה:</strong> 0% החזר. ביטוחי בריאות פרטיים באירלנד (VHI, Laya) מחריגים באופן גורף תרופות קוסמטיות לטיפול בנשירת שיער.</li>
+          <li><strong>ביקור אצל רופא משפחה (GP):</strong> רוב פוליסות VHI של עובדי גוגל מחזירות 50% מעלות ביקור ה-GP (או מעניקות גישה חינם לשירות רופא אונליין של VHI).</li>
+        </ul>
+      </div>
+
+      <div class="subcard">
+        <h3>4. מדוע מסוכן להוציא תרופות נוספות על שם האב בישראל?</h3>
+        <p>בפינסטריד 1 מ"ג המינון נמוך ומוגדר לנשירה. אך אם תשקול <strong>דואוטסטריד (Avodart)</strong>, תרופה זו מיועדת במקור לערמונית מוגדלת ומורידה את ערכי ה-PSA בבדיקות דם בחצי (50%).</p>
+        <p style="margin-top: 6px; color: var(--danger);"><strong>אזהרה:</strong> רישום דואוטסטריד בתיקו הרפואי של אדם מבוגר עלול לעוות מעקב אונקולוגי/אורולוגי שגרתי של אביך. עדיף בהרבה להוציא מרשם עצמאי בדבלין.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TAB 4: HAIR SYSTEMS -->
+  <section id="tab-hair-systems" class="section-card" style="display: none;">
+    <h2 class="section-title">💇 פאות ומערכות שיער מודרניות (Hair Systems)</h2>
+
+    <p>מערכות שיער מודרניות מבוססות על רשת תחרה (Lace) או פולימר דקיק (0.03 מ"מ) המודבק בדבק רפואי ישירות לקרקפת. המראה מושלם ובלתי נראה לעין, אך המחיר התפקודי והיומיומי כבד.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>קריטריון</th>
+          <th>מערכת שיער (פאה מודרנית)</th>
+          <th>השתלת שיער כירורגית</th>
+          <th>שמירה על שיער טבעי + תספורת קצרה</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>איכות המראה</strong></td>
+          <td>מושלם לחלוטין, 100% צפיפות, בחירת צבע ומרקם.</td>
+          <td>שיפור טבעי של השיער שלך, צפיפות בינונית-גבוהה.</td>
+          <td>מראה טבעי, שקיפות קלה בתאורה ישירה.</td>
+        </tr>
+        <tr>
+          <td><strong>שגרת תחזוקה</strong></td>
+          <td>תובענית: פירוק, ניקוי שאריות דבק, גילוח והדבקה כל שבוע-שבועיים.</td>
+          <td>אפס התעסקות לאחר שנת החלמה.</td>
+          <td>תספורת שגרתית בלבד.</td>
+        </tr>
+        <tr>
+          <td><strong>עלות שנתית</strong></td>
+          <td>גבוהה וקבועה: החלפת יחידה כל 2-4 חודשים (אלפי יורו בשנה).</td>
+          <td>חד-פעמית: כ-€3,000 עד €6,000 להליך איכותי.</td>
+          <td>אפס.</td>
+        </tr>
+        <tr>
+          <td><strong>תחושה פיזית</strong></td>
+          <td>גירוד בקיץ, חום מתחת לדבק, חרדת התרופפות בים או מגע יד.</td>
+          <td>הקרקפת והשיער האמיתיים שלך ללא שום מגבלה.</td>
+          <td>חופש מלא.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- TAB 5: ATHENS -->
+  <section id="tab-athens" class="section-card" style="display: none;">
+    <h2 class="section-title">🏛️ מפת הדרכים לאתונה: ייעוץ, מרפאות וטיוטת פנייה</h2>
+
+    <div class="alert-box alert-info">
+      <strong>💡 האסטרטגיה הנכונה לנסיעה הקרובה:</strong> קבע פגישת ייעוץ אישית ובדיקת טריכוסקופיה דיגיטלית באתונה בזמן שהותך בעיר, אך בצע את הניתוח (אם תבחר בכך) בנסיעה ייעודית בעוד מספר חודשים.
+    </div>
+
+    <div class="grid-2" style="margin-top: 16px;">
+      <div class="subcard">
+        <h3>Advanced Hair Clinics (ד"ר אנסטסיוס ווקריס)</h3>
+        <p>מהמרפאות המובילות והמעוטרות באירופה. ד"ר ווקריס הוא מנתח פלסטי מומחה ב-FUE ידני עדין עם דגש על צפיפות טבעית במקרים מורכבים של דילול מפוזר.</p>
+      </div>
+
+      <div class="subcard">
+        <h3>DHI Global Medical Group (אתונה)</h3>
+        <p>המרכז הראשי וההיסטורי של שיטת DHI. יתרון משמעותי: שימוש ישיר בעטי החדרת זקיקים (Choi Implanters) ללא חיתוך תעלות מוקדם בסקלפל, מפחית משמעותית סכנת נזק לשיער קיים.</p>
+      </div>
+
+      <div class="subcard">
+        <h3>Seneca Medical Group (אתונה)</h3>
+        <p>מרפאה מודרנית עם פרוטוקול רפואי קפדני (הרופאים עצמם מבצעים את החילוץ וההשתלה ולא טכנאים) ובדיקת אבחון מקיפה.</p>
+      </div>
+
+      <div class="subcard">
+        <h3>טווח מחירים משוער באתונה</h3>
+        <p>ביוון העלות נעה סביב <strong>€1.5 עד €2.5 לזקיק</strong>, או חבילה של כ-<strong>€3,000 עד €5,000</strong> ליום טיפול מלא אצל רופא בכיר (זול משמעותית מאירלנד ואנגליה, ומפוקח בהרבה מטורקיה).</p>
+      </div>
+    </div>
+
+    <div style="margin-top: 24px;">
+      <h3 style="margin-bottom: 12px; color: var(--primary);">טיוטת פנייה למרפאות באתונה (מוכנה להעתקה)</h3>
+      <div class="code-block" id="emailDraft">
+<button class="copy-btn" onclick="copyEmail()">📋 העתק טקסט</button>
+Subject: Hair Restoration Assessment & In-Person Consultation Inquiry (Athens Visit)
+
+Dear Medical Team,
+
+I am writing to inquire about a hair restoration evaluation. I will be in Athens for 10 days in the near future and would like to schedule an in-person diagnostic consultation at your clinic, as well as receive your preliminary evaluation based on my attached photos.
+
+Patient background:
+- Age: 40s
+- Current regimen: Daily Finasteride (Propecia) 1mg
+- Pattern: Diffuse thinning across the mid-scalp and vertex, with a preserved frontal forelock.
+- Hair characteristics: Fine caliber, salt-and-pepper / greying hair.
+
+Because my primary condition is diffuse thinning amidst existing native hair, I would appreciate your medical feedback on the following points:
+
+1. Candidate Suitability & Shock Loss Prevention: Given that there is substantial native hair in the recipient area, what surgical approach do you use to prevent transection and permanent shock loss to native follicles? Do you employ direct implanter pens (DHI / Choi implanters) to insert grafts directly between native hairs without pre-made scalpel incisions?
+2. Grey Hair Extraction Protocol: As a portion of my donor hair is grey/white, what optical magnification and visualization protocol (such as pre-operative donor dyeing) do your surgeons employ to ensure zero follicle transection during extraction?
+3. Medical Staff Involvement: Does the licensed medical doctor physically perform the follicular unit extraction and the implantation, or is this delegated to technicians?
+4. Estimated Scope & Pricing: Based on the attached photos, what would be your initial estimate for the required number of grafts, and what is your pricing structure (per graft or full-day session)?
+5. In-Person Consultation: Can we coordinate an in-person trichoscopic scalp examination during my upcoming stay in Athens?
+
+Looking forward to hearing from you.
+
+Kind regards,
+Elad Ben-David
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    מסמך זה נשמר לגיבוי בכספת הפרויקטים האישית בנתיב: <code>Projects/hair-restoration-vault</code> &bull; אוקטובר 2026
+  </footer>
+
+</div>
+
+<script>
+  function showTab(tabName) {
+    document.querySelectorAll('.section-card').forEach(sec => sec.style.display = 'none');
+    document.querySelectorAll('.nav-tab').forEach(tab => tab.classList.remove('active'));
+    
+    document.getElementById('tab-' + tabName).style.display = 'block';
+    event.currentTarget.classList.add('active');
+  }
+
+  function toggleTheme() {
+    const html = document.documentElement;
+    const current = html.getAttribute('data-theme');
+    html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+  }
+
+  function copyEmail() {
+    const text = document.getElementById('emailDraft').innerText.replace('📋 העתק טקסט', '').trim();
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector('.copy-btn');
+      btn.innerText = '✅ הועתק בהצלחה';
+      setTimeout(() => btn.innerText = '📋 העתק טקסט', 2000);
+    });
+  }
+</script>
+
+</body>
+</html>
