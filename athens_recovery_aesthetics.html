@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אתונה ינואר 2027 • פורטל אסתטיקה ורפואת שיניים בהתאוששות</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #111827;
+      --surface-card: #1a2234;
+      --border: #2d3748;
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
+      --accent: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    :root[data-theme="light"] {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-card: #f1f5f9;
+      --border: #e2e8f0;
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --accent: #16a34a;
+      --warning: #d97706;
+      --danger: #dc2626;
+      --text: #0f172a;
+      --text-muted: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px 16px;
+    }
+    header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .theme-toggle {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    .theme-toggle:hover {
+      border-color: var(--primary);
+    }
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+      color: var(--text);
+    }
+    .bluf-box {
+      background: rgba(34, 197, 94, 0.1);
+      border-right: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 16px;
+      font-size: 0.95rem;
+    }
+    html[dir="ltr"] .bluf-box {
+      border-right: none;
+      border-left: 4px solid var(--accent);
+    }
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .section-title {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--primary);
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 0.9rem;
+    }
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      text-align: right;
+    }
+    html[dir="ltr"] th, html[dir="ltr"] td {
+      text-align: left;
+    }
+    th {
+      background: var(--surface-card);
+      color: var(--text-muted);
+      font-weight: 700;
+      font-size: 0.85rem;
+    }
+    tr:hover {
+      background: rgba(255,255,255,0.02);
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    .subcard {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 18px;
+    }
+    .code-block {
+      direction: ltr;
+      text-align: left;
+      background: #050811;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.85rem;
+      color: #e2e8f0;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      position: relative;
+      margin-top: 10px;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+    .copy-btn:hover {
+      background: var(--primary);
+      color: #000;
+    }
+    footer {
+      text-align: center;
+      padding: 24px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div style="display:flex; justify-content:flex-end; margin-bottom: 10px;">
+      <a href="http://go/athens-recovery-aesthetics" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:999px;background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;font-family:monospace;font-size:12px;font-weight:700;text-decoration:none;">🔗 go/athens-recovery-aesthetics</a>
+    </div>
+
+    <header>
+      <div class="header-top">
+        <span class="badge" data-he="אתונה • ינואר 2027 • פורטל התאוששות ואסתטיקה" data-en="Athens • Jan 2027 • Recovery & Aesthetics Portal">אתונה • ינואר 2027 • פורטל התאוששות ואסתטיקה</span>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button id="langBtnHe" class="theme-toggle" onclick="setLang('he')" aria-pressed="true">🇮🇱 עברית</button>
+          <button id="langBtnEn" class="theme-toggle" onclick="setLang('en')" aria-pressed="false">🇬🇧 English</button>
+          <button class="theme-toggle" onclick="toggleTheme()" data-he="🌓 תצוגה" data-en="🌓 Theme">🌓 תצוגה</button>
+        </div>
+      </div>
+      <h1 data-he="אופטימיזציית נראות ובריאות בהתאוששות באתונה" data-en="Aesthetic & Health Optimization During Athens Recovery">אופטימיזציית נראות ובריאות בהתאוששות באתונה</h1>
+      <p style="color:var(--text-muted); font-size:0.95rem;" data-he="מיפוי מרפאות שיניים להלבנת לייזר, דרמטולוגיה רפואית ל-HydraFacial, ובדיקות מעבדה מקיפות במרחק הליכה קצר מאיליסיה (יונס דראגומי 34) וממרפאת ד״ר קראסטאריס" data-en="Mapped dental laser whitening clinics, medical HydraFacial dermatology, and private blood diagnostics walking distance from Ilisia base (Ionos Dragoumi 34) and Dr. Kerastaris">מיפוי מרפאות שיניים להלבנת לייזר, דרמטולוגיה רפואית ל-HydraFacial, ובדיקות מעבדה מקיפות במרחק הליכה קצר מאיליסיה (יונס דראגומי 34) וממרפאת ד"ר קראסטאריס</p>
+
+      <div class="bluf-box" data-he="📌 שורה תחתונה: ניתוח שאיבת השומן אצל ד״ר קראסטאריס הוא העוגן הראשי. בשבעת ימי ההתאוששות, כשהבטן נחה במחוך, ניתן לבצע בבטחה מלאה בדיקות דם בבוקר ההגעה (Bioiatriki ב-€130), טיפול HydraFacial רפואי (CDM ב-€80), והלבנת שיניים בלייזר (Athens Dental Care ב-€190) במרחק של 5 עד 12 דקות הליכה רגלית מישורית (0 אירו מונית)." data-en="📌 Bottom Line: Liposuction with Dr. Kerastaris is the core anchor. During the 7 recovery days, while resting in the compression garment, you can safely complete full blood tests (Bioiatriki, €130), a medical HydraFacial (CDM, €80), and laser teeth whitening (Athens Dental Care, €190)—all within 5 to 12 minutes flat walk (€0 taxi).">
+        <strong>📌 שורה תחתונה:</strong> ניתוח שאיבת השומן אצל ד"ר קראסטאריס הוא העוגן הראשי. בשבעת ימי ההתאוששות, כשהבטן נחה במחוך, ניתן לבצע בבטחה מלאה בדיקות דם בבוקר ההגעה (Bioiatriki ב-€130), טיפול HydraFacial רפואי (CDM ב-€80), והלבנת שיניים בלייזר (Athens Dental Care ב-€190) במרחק של 5 עד 12 דקות הליכה רגלית מישורית (0 אירו מונית).
+      </div>
+    </header>
+
+    <!-- SECTION 1: TIMELINE & SAFETY MATRIX -->
+    <section class="section-card">
+      <h2 class="section-title" data-he="🗓️ לוח זמנים ובטיחות קלינית בשבוע ההתאוששות" data-en="🗓️ Recovery Week Clinical Schedule & Safety Rules">🗓️ לוח זמנים ובטיחות קלינית בשבוע ההתאוששות</h2>
+      <table>
+        <thead>
+          <tr>
+            <th data-he="יום בשבוע" data-en="Day">יום בשבוע</th>
+            <th data-he="פעילות מתוכננת" data-en="Planned Activity">פעילות מתוכננת</th>
+            <th data-he="סטטוס קליני" data-en="Clinical Status">סטטוס קליני</th>
+            <th data-he="הנחיות החלמה" data-en="Recovery Protocol">הנחיות החלמה</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>יום 0 (לפני הניתוח)</strong></td>
+            <td>בדיקת דם בצום ב-Bioiatriki (08:00) + טריכוסקופיה חינם ב-Seneca</td>
+            <td><strong style="color:var(--accent);">✅ בטוח לחלוטין</strong></td>
+            <td>עצמאי, ניידות מלאה. קבלת תוצאות דם לפני ההרדמה.</td>
+          </tr>
+          <tr>
+            <td><strong>יום 1 (יום הניתוח)</strong></td>
+            <td>ניתוח שאיבת שומן אצל ד"ר קראסטאריס (רחוב חאדז'יאני מקסי 2)</td>
+            <td><strong style="color:var(--warning);">🛑 ניתוח מרכזי</strong></td>
+            <td>מנוחה מוחלטת בדירה, לבישת מחוך לחץ, שתיית נוזלים מרובה.</td>
+          </tr>
+          <tr>
+            <td><strong>ימים 2–3</strong></td>
+            <td>התאוששות ראשונית, הליכות קצרות בחדר</td>
+            <td><strong>מנוחה בבית</strong></td>
+            <td>אפס פרוצדורות חיצוניות, ירידת בצקות ראשונית.</td>
+          </tr>
+          <tr>
+            <td><strong>יום 4–5</strong></td>
+            <td>טיפול זוהר לפנים Medical HydraFacial ב-CDM (40 דק')</td>
+            <td><strong style="color:var(--accent);">✅ בטוח (ללא מחטים)</strong></td>
+            <td>הליכה של 5 דק' בוסיליסיס סופיאס 64. החזרת ברק לעור הפנים.</td>
+          </tr>
+          <tr>
+            <td><strong>יום 5–6</strong></td>
+            <td>הלבנת שיניים בלייזר Zoom ב-Athens Dental Care (60 דק')</td>
+            <td><strong style="color:var(--accent);">✅ בטוח (ללא דימום)</strong></td>
+            <td>ישיבה רגועה בכיסא. אפס השפעה על הבטן. דיאטה לבנה ליומיים.</td>
+          </tr>
+          <tr>
+            <td><strong>יום 7</strong></td>
+            <td>ביקורת סופית אצל ד"ר קראסטאריס וטיסה חזרה לדבלין</td>
+            <td><strong>טיסה חזרה</strong></td>
+            <td>טיסה נוחה עם מחוך לחץ, שתיית מים, גרביים אלסטיות.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 2: DENTAL CLINICS -->
+    <section class="section-card">
+      <h2 class="section-title" data-he="🦷 שלוש מרפאות שיניים להלבנת לייזר (איכות מעולה ומחיר הוגן)" data-en="🦷 Top 3 Dental Clinics for Laser Whitening (Fair Pricing & High Quality)">🦷 שלוש מרפאות שיניים להלבנת לייזר (איכות מעולה ומחיר הוגן)</h2>
+      <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:12px;" data-he="כל המרפאות נבחרו לפי קרבה גיאוגרפית (הליכה ברגל מאיליסיה), ציוד לייזר/LED מתקדם, ואנגלית שוטפת:" data-en="Clinics selected by walking distance from Ilisia, advanced Laser/LED tech, and fluent English:">כל המרפאות נבחרו לפי קרבה גיאוגרפית (הליכה ברגל מאיליסיה), ציוד לייזר/LED מתקדם, ואנגלית שוטפת:</p>
+      
+      <table>
+        <thead>
+          <tr>
+            <th data-he="מרפאה ומיקום" data-en="Clinic & Location">מרפאה ומיקום</th>
+            <th data-he="שיטת הלבנה ומחיר יעד" data-en="Method & Target Price">שיטת הלבנה ומחיר יעד</th>
+            <th data-he="מרחק הליכה מהדירה (יונס דראגומי 34)" data-en="Walking Distance from Base">מרחק הליכה מהדירה (יונס דראגומי 34)</th>
+            <th data-he="פרטי יצירת קשר" data-en="Contact Details">פרטי יצירת קשר</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Athens Dental Care (ד"ר ניקולאוס סיטאראס)</strong><br><span style="font-size:0.82rem; color:var(--text-muted);">Vassilissis Sofias (אזור מגארו מוסיקיס)</span></td>
+            <td><strong>€180 עד €220</strong><br>הלבנת לייזר In-Office + ניקוי מקדים</td>
+            <td><strong>500 מטר (6 דקות הליכה מישורית)</strong></td>
+            <td><code>info@athensdentalcare.gr</code><br>טלפון/וואטסאפ זמין</td>
+          </tr>
+          <tr>
+            <td><strong>2. Dental Clinics Kolonaki (רופאי שיניים מומחים)</strong><br><span style="font-size:0.82rem; color:var(--text-muted);">Patriarchou Ioakeim, קולונאקי</span></td>
+            <td><strong>€200 עד €250</strong><br>מערכת Philips Zoom WhiteSpeed המקורית</td>
+            <td><strong>950 מטר (11 דקות הליכה רגועה)</strong></td>
+            <td><code>info@dentalclinics.gr</code><br>מרפאת בוטיק בלב קולונאקי</td>
+          </tr>
+          <tr>
+            <td><strong>3. Elite Dental Athens</strong><br><span style="font-size:0.82rem; color:var(--text-muted);">Skoufa 10, קולונאקי</span></td>
+            <td><strong>€190 עד €230</strong><br>הלבנה בלייזר Beyond Polus + ג'ל מרגיע</td>
+            <td><strong>1.2 ק"מ (14 דקות הליכה או תחנת מטרו)</strong></td>
+            <td><code>contact@elitedental.gr</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 3: SKIN & HYDRAFACIAL -->
+    <section class="section-card">
+      <h2 class="section-title" data-he="✨ שלוש מרפאות עור ל-HydraFacial וטיפוח רפואי" data-en="✨ Top 3 Medical Dermatology Clinics for HydraFacial">✨ שלוש מרפאות עור ל-HydraFacial וטיפוח רפואי</h2>
+      <table>
+        <thead>
+          <tr>
+            <th data-he="מרפאה ומיקום" data-en="Clinic & Location">מרפאה ומיקום</th>
+            <th data-he="טיפול ומחיר" data-en="Treatment & Price">טיפול ומחיר</th>
+            <th data-he="מרחק ממרפאת ד״ר קראסטאריס" data-en="Distance from Dr. Kerastaris">מרחק ממרפאת ד"ר קראסטאריס</th>
+            <th data-he="למה מומלץ" data-en="Why Recommended">למה מומלץ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>1. Cosmetic Derma Medicine (CDM)</strong><br><span style="font-size:0.82rem; color:var(--text-muted);">Vassilissis Sofias 64</span></td>
+            <td><strong>€80 עד €100</strong> (Signature)<br><strong>€110 עד €120</strong> (Deluxe)</td>
+            <td><strong>400 מטר (5 דקות הליכה בלבד)</strong></td>
+            <td>רשת הדרמטולוגיה הגדולה ביוון, מכשור HydraFacial MD מקורי, סמיכות מושלמת לדירה.</td>
+          </tr>
+          <tr>
+            <td><strong>2. Athens Beverly Hills Medical Group (ABH)</strong><br><span style="font-size:0.82rem; color:var(--text-muted);">Loukianou 8, קולונאקי</span></td>
+            <td><strong>€100 עד €130</strong><br>טיפול פנים רפואי פרימיום</td>
+            <td><strong>900 מטר (10 דקות הליכה)</strong></td>
+            <td>מרפאת יוקרה בקולונאקי, שירות VIP אישי באנגלית שוטפת.</td>
+          </tr>
+          <tr>
+            <td><strong>3. Skin &amp; Hair Medical Care</strong><br><span style="font-size:0.82rem; color:var(--text-muted);">Mavili Square (ליד מגדל אתונה)</span></td>
+            <td><strong>€85 עד €110</strong><br>ניקוי עמוק והחדרת סרומים</td>
+            <td><strong>700 מטר (8 דקות הליכה)</strong></td>
+            <td>קליניקה רפואית שקטה, קרובה למעבדת Bioiatriki.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 4: EMAIL DRAFTS -->
+    <section class="section-card">
+      <h2 class="section-title" data-he="✉️ טיוטות פנייה קצרות למייל (מוכנות לשליחה בסוף דצמבר)" data-en="✉️ Copy-Ready Email Drafts (For Late December Outreach)">✉️ טיוטות פנייה קצרות למייל (מוכנות לשליחה בסוף דצמבר)</h2>
+
+      <div class="grid-2">
+        <div class="subcard">
+          <h3 style="color:var(--primary); margin-bottom:8px;" data-he="טיוטה 1: הלבנת שיניים בלייזר (למרפאות שיניים)" data-en="Draft 1: Laser Teeth Whitening (Dental Clinics)">טיוטה 1: הלבנת שיניים בלייזר (למרפאות שיניים)</h3>
+          <div class="code-block" id="dentalDraft">
+<button class="copy-btn" onclick="copyText('dentalDraft')">📋 העתק</button>
+Subject: Inquiry: In-Office Laser Teeth Whitening appointment (Mid-January)
+
+Dear Dental Team,
+
+I will be visiting Athens in mid-January 2027 and staying in Ilisia. 
+I would like to book a single session of in-office professional laser teeth whitening (e.g., Philips Zoom / Beyond) including dental cleaning/prophylaxis.
+
+Could you please confirm:
+1. What in-office whitening system do you use?
+2. What is the total package price for cleaning + in-office laser whitening?
+3. Do you have afternoon availability between January 14–19?
+
+Kind regards,
+Elad
+          </div>
+        </div>
+
+        <div class="subcard">
+          <h3 style="color:var(--primary); margin-bottom:8px;" data-he="טיוטה 2: טיפול HydraFacial רפואי (למרפאות עור)" data-en="Draft 2: Medical HydraFacial (Dermatology Clinics)">טיוטה 2: טיפול HydraFacial רפואי (למרפאות עור)</h3>
+          <div class="code-block" id="skinDraft">
+<button class="copy-btn" onclick="copyText('skinDraft')">📋 העתק</button>
+Subject: Appointment Inquiry: Medical HydraFacial MD (Mid-January visit)
+
+Dear Medical Dermatology Team,
+
+I will be visiting Athens in mid-January 2027 and staying near Vassilissis Sofias / Ilisia.
+I would like to book a single session of authentic medical HydraFacial MD for skin hydration and deep pore cleansing.
+
+Could you please confirm:
+1. Is your treatment performed with the authentic HydraFacial MD system?
+2. What is your pricing for the Signature vs. Deluxe protocol?
+3. Can we reserve a session for the afternoon of January 15 or 16?
+
+Kind regards,
+Elad
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      פורטל זה נשמר ומסונכרן בכספת הפרויקטים האישית: <code>Projects/hair-restoration-vault</code> • עודכן: 5 בנובמבר 2026
+    </footer>
+
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+
+    function setLang(lang) {
+      const isHe = lang !== 'en';
+      document.documentElement.lang = isHe ? 'he' : 'en';
+      document.documentElement.dir = isHe ? 'rtl' : 'ltr';
+      document.getElementById('langBtnHe').setAttribute('aria-pressed', isHe ? 'true' : 'false');
+      document.getElementById('langBtnEn').setAttribute('aria-pressed', isHe ? 'false' : 'true');
+      document.querySelectorAll('[data-he][data-en]').forEach(el => {
+        el.textContent = isHe ? el.getAttribute('data-he') : el.getAttribute('data-en');
+      });
+    }
+
+    function copyText(id) {
+      const block = document.getElementById(id);
+      const text = block.innerText.replace('📋 העתק', '').trim();
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text);
+        alert('הטקסט הועתק ללוח בהצלחה!');
+      }
+    }
+  </script>
+</body>
+</html>
