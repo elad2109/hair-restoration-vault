@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>פרוטוקול טיפוח עור מדעי לגברים • שתי דקות ביום</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #111827;
+      --surface-card: #1a2234;
+      --border: #2d3748;
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
+      --accent: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    :root[data-theme="light"] {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-card: #f1f5f9;
+      --border: #e2e8f0;
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --accent: #16a34a;
+      --warning: #d97706;
+      --danger: #dc2626;
+      --text: #0f172a;
+      --text-muted: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+    .container {
+      max-width: 1050px;
+      margin: 0 auto;
+      padding: 24px 16px;
+    }
+    header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .badge-group {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .badge-accent {
+      background: rgba(34, 197, 94, 0.15);
+      color: var(--accent);
+      border-color: rgba(34, 197, 94, 0.3);
+    }
+    .badge-warning {
+      background: rgba(245, 158, 11, 0.15);
+      color: var(--warning);
+      border-color: rgba(245, 158, 11, 0.3);
+    }
+    .theme-toggle {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 0.85rem;
+    }
+    h1 {
+      font-size: 1.6rem;
+      margin-bottom: 6px;
+      color: var(--text);
+    }
+    .subtitle {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 22px;
+      margin-bottom: 20px;
+    }
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+    }
+    .tier-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 16px;
+      margin: 16px 0;
+    }
+    .tier-card {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px;
+      border-inline-start: 4px solid var(--border);
+    }
+    .tier-1 { border-inline-start-color: var(--accent); }
+    .tier-2 { border-inline-start-color: var(--primary); }
+    .tier-3 { border-inline-start-color: var(--danger); }
+    .tier-title {
+      font-weight: 700;
+      font-size: 1.05rem;
+      margin-bottom: 8px;
+    }
+    .tier-1 .tier-title { color: var(--accent); }
+    .tier-2 .tier-title { color: var(--primary); }
+    .tier-3 .tier-title { color: var(--danger); }
+    .table-container {
+      overflow-x: auto;
+      margin: 16px 0;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: right;
+      font-size: 0.92rem;
+    }
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+    }
+    th {
+      background: var(--surface-card);
+      color: var(--text);
+      font-weight: 700;
+    }
+    tr:hover td {
+      background: rgba(56, 189, 248, 0.05);
+    }
+    .action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--primary);
+      color: #000;
+      padding: 6px 12px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.82rem;
+      transition: opacity 0.2s;
+    }
+    .action-btn:hover {
+      opacity: 0.85;
+    }
+    .routine-box {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 16px 0;
+    }
+    @media (max-width: 650px) {
+      .routine-box { grid-template-columns: 1fr; }
+    }
+    .routine-panel {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px;
+    }
+    .routine-header {
+      font-weight: 700;
+      font-size: 1.1rem;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .step-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      align-items: flex-start;
+    }
+    .step-num {
+      background: rgba(56, 189, 248, 0.2);
+      color: var(--primary);
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.8rem;
+      font-weight: 700;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .rule-item {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      align-items: baseline;
+    }
+    .rule-bullet {
+      color: var(--primary);
+      font-weight: bold;
+    }
+    footer {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-top">
+        <div class="badge-group">
+          <span class="badge">go/eladb-skincare</span>
+          <span class="badge badge-accent">Dermatology Truth 2027</span>
+          <span class="badge badge-warning">Zero-Fluff Routine</span>
+        </div>
+        <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="החלף מצב תצוגה">🌓 מצב יום / לילה</button>
+      </div>
+      <h1>פרוטוקול טיפוח עור מדעי לגברים • שתי דקות ביום</h1>
+      <p class="subtitle">האמת המדעית על טיפוח: למה רטינול ומקדם הגנה הם 90% מכל התוצאות, למה רוב הסרומים בשוק הם בזבוז כסף, והיכן ויטמין C משתלב כבונוס אופציונלי בלבד.</p>
+    </header>
+
+    <!-- CARD 1: מדע מול שיווק -->
+    <section class="card" aria-labelledby="truth-title">
+      <h2 class="card-title" id="truth-title">🧪 למה בעבר אמרנו שסרומים הם מיותרים? (מדע מול שיווק קוסמטי)</h2>
+      <p style="margin-bottom: 14px;">בעולם הקוסמטיקה מוכרים אלפי סרומים יקרים שמבטיחים ניסים ונפלאות. ברפואת עור מבוססת ראיות, יש מדרג יעילות ברור ובלתי ניתן לערעור:</p>
+      
+      <div class="tier-grid">
+        <div class="tier-card tier-1">
+          <div class="tier-title">דרג 1: מלכי האנטי-אייג'ינג (85% עד 90% מהתוצאות)</div>
+          <p style="font-size: 0.9rem; margin-bottom: 8px;"><strong>רטינואידים (בלילה) + קרם הגנה SPF 50 (בבוקר).</strong></p>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">הרטינול הוא החומר הפעיל היחיד שהוכח מדעית במחקרים כפול-סמיות כמחדש קולגן עמוק, מאיץ תחלופת תאים ומעלים קמטוטים. מקדם ההגנה מונע 90% מההזדקנות, הפיגמנטציה והנזק התאי. אם אתה עושה רק את זה, קיבלת כמעט את כל מה שרפואת העור מסוגלת להציע.</p>
+        </div>
+
+        <div class="tier-card tier-2">
+          <div class="tier-title">דרג 2: בונוס אופציונלי (10% עד 15% תוספת)</div>
+          <p style="font-size: 0.9rem; margin-bottom: 8px;"><strong>ויטמין C טהור (L-Ascorbic Acid 15%).</strong></p>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">נוגד חמצון שמנטרל רדיקלים חופשיים ומעניק זוהר שטחי (Glow) וברק לעור. הוא נהדר כתוספת, אבל הוא <em>אופציונלי לחלוטין</em>. אם הוא מכביד עליך, גורם לך לטרחה או מעלה את החיכוך היומי, מוותרים עליו ללא היסוס.</p>
+        </div>
+
+        <div class="tier-card tier-3">
+          <div class="tier-title">דרג 3: מלכודות שיווק ומים יקרים (מיותר לחלוטין)</div>
+          <p style="font-size: 0.9rem; margin-bottom: 8px;"><strong>סרומים של חומצה היאלורונית, ריר חלזונות, פפטידים וקולגן.</strong></p>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">סרומים שנמכרים ב-50 עד 120 אירו ואינם אלא מים עם חומר סופח לחות שקיים כבר בכל קרם לחות בסיסי ב-5 אירו. הם אינם חודרים לעומק העור, אינם מעודדים קולגן, ומייצרים שגרות מורכבות של 10 שלבים שרק מייבשות ומגרות את העור.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARD 2: שגרת שתי הדקות -->
+    <section class="card" aria-labelledby="routine-title">
+      <h2 class="card-title" id="routine-title">⏱️ שגרת שתי הדקות המדויקת (מינימליזם מקסימלי)</h2>
+      <div class="routine-box">
+        <div class="routine-panel">
+          <div class="routine-header">
+            <span style="color: var(--primary);">☀️ בוקר (30 שניות)</span>
+            <span class="badge">הגנה וזוהר</span>
+          </div>
+          <div class="step-item">
+            <span class="step-num">1</span>
+            <div>
+              <strong>שטיפה במים קרירים / פושרים:</strong> אין חובה בסבון בבוקר אלא אם העור שומני במיוחד.
+            </div>
+          </div>
+          <div class="step-item">
+            <span class="step-num">2</span>
+            <div>
+              <strong>ויטמין C (אופציונלי):</strong> 4 עד 5 טיפות על כף היד, מריחה על הפנים והצוואר. ייבוש תוך 10 שניות.
+            </div>
+          </div>
+          <div class="step-item">
+            <span class="step-num">3</span>
+            <div>
+              <strong>מקדם הגנה SPF 50 (חובה):</strong> שכבה קלילה של קרם הגנה שאינו שומני (כגון Anthelios או Eucerin Oil Control).
+            </div>
+          </div>
+        </div>
+
+        <div class="routine-panel">
+          <div class="routine-header">
+            <span style="color: var(--accent);">🌙 לילה (60 שניות)</span>
+            <span class="badge badge-accent">שיקום וקולגן</span>
+          </div>
+          <div class="step-item">
+            <span class="step-num">1</span>
+            <div>
+              <strong>ניקוי עדין:</strong> סבון פנים בסיסי ללא בישום (כגון Cerave Hydrating Cleanser) להסרת לכלוך היום.
+            </div>
+          </div>
+          <div class="step-item">
+            <span class="step-num">2</span>
+            <div>
+              <strong>רטינול (חובה):</strong> כמות קטנה בגודל אפונה על עור יבש לחלוטין. הימנעות ממריחה סמוך מדי לעיניים.
+            </div>
+          </div>
+          <div class="step-item">
+            <span class="step-num">3</span>
+            <div>
+              <strong>קרם לחות בסיסי:</strong> שכבה קלה של קרם לחות בסיסי (Cerave או Cetaphil) לנעילת הלחות ולמניעת יובש.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARD 3: השוואת מוצרים -->
+    <section class="card" aria-labelledby="products-title">
+      <h2 class="card-title" id="products-title">🛒 מוצרים מומלצים, מחירים ואיפה לקנות</h2>
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>סוג תכשיר</th>
+              <th>מוצר מומלץ</th>
+              <th>מחיר משוער</th>
+              <th>היכן משיגים (דבלין / אונליין)</th>
+              <th>פעולה ישירה</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>ויטמין C (מומלץ ביותר)</strong></td>
+              <td>Geek & Gorgeous C-Glow 15% (30ml)</td>
+              <td>כ-12.50 אירו</td>
+              <td>האתר הרשמי (נרקח טרי מדי שבוע במעבדה באירופה)</td>
+              <td><a href="https://geekandgorgeous.com/products/c-glow" target="_blank" rel="noopener noreferrer" class="action-btn">לאתר הרשמי ↗</a></td>
+            </tr>
+            <tr>
+              <td><strong>ויטמין C (מדף מקומי בדבלין)</strong></td>
+              <td>La Roche-Posay Pure Vitamin C10</td>
+              <td>כ-38 עד 42 אירו</td>
+              <td>בכל סניף Boots בדבלין (Grafton, Stephen's Green)</td>
+              <td><a href="https://www.amazon.co.uk/dp/B07P8J8M3J" target="_blank" rel="noopener noreferrer" class="action-btn">אמזון בריטניה ↗</a></td>
+            </tr>
+            <tr>
+              <td><strong>רטינול (איכותי וזול)</strong></td>
+              <td>The Ordinary Granactive Retinoid 2% / Retinol</td>
+              <td>כ-9 עד 12 אירו</td>
+              <td>בכל סניף Boots בדבלין או אמזון בריטניה</td>
+              <td><a href="https://www.boots.ie" target="_blank" rel="noopener noreferrer" class="action-btn">Boots אירלנד ↗</a></td>
+            </tr>
+            <tr>
+              <td><strong>רטינול (דרמו-קוסמטי עדין)</strong></td>
+              <td>La Roche-Posay Redermic Retinol</td>
+              <td>כ-32 עד 36 אירו</td>
+              <td>סניפי Boots ובתי מרקחת בדבלין</td>
+              <td><a href="https://www.boots.ie" target="_blank" rel="noopener noreferrer" class="action-btn">Boots אירלנד ↗</a></td>
+            </tr>
+            <tr>
+              <td><strong>מקדם הגנה SPF 50 (מט, לא שומני)</strong></td>
+              <td>La Roche-Posay Anthelios UVMune 400 Oil Control</td>
+              <td>כ-19 עד 22 אירו</td>
+              <td>בכל בית מרקחת וסניף Boots בדבלין</td>
+              <td><a href="https://www.boots.ie" target="_blank" rel="noopener noreferrer" class="action-btn">Boots אירלנד ↗</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- CARD 4: כללי ברזל -->
+    <section class="card" aria-labelledby="rules-title">
+      <h2 class="card-title" id="rules-title">📌 ארבעת חוקי הברזל לבריאות העור</h2>
+      <div class="rule-item">
+        <span class="rule-bullet">•</span>
+        <div><strong>שמירת ויטמין C במקרר:</strong> חומצה אסקורבית טהורה רגישה לחום ולאור. לאחר הפתיחה שומרים את הבקבוק במקרר כדי למנוע חמצון ולשמור עליו שקוף ופעיל למשך 4 חודשים.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-bullet">•</span>
+        <div><strong>הסתגלות הדרגתית לרטינול:</strong> בשבועיים הראשונים מורחים רטינול רק פעמיים בשבוע בלילה. לאחר מכן עולים לשלוש פעמים, ורק אחרי חודש עוברים לשימוש יומיומי.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-bullet">•</span>
+        <div><strong>הפרדה מוחלטת בין בוקר ללילה:</strong> לעולם אין למרוח ויטמין C ורטינול יחד. ויטמין C עובד בבוקר בסינרגיה עם קרם ההגנה; רטינול עובד בלילה ומתפרק באור שמש.</div>
+      </div>
+      <div class="rule-item">
+        <span class="rule-bullet">•</span>
+        <div><strong>שקט נפשי:</strong> אם יום אחד אין לך כוח לסרום, מוותרים עליו. רטינול בלילה ומקדם הגנה בבוקר הם המבצר העיקרי של בריאות העור.</div>
+      </div>
+    </section>
+
+    <footer>
+      נוצר עבור Elad Ben-David • סונכרן לכספת GitHub hair-restoration-vault • עודכן נובמבר 2026
+    </footer>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const root = document.documentElement;
+      const current = root.getAttribute('data-theme');
+      const next = current === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', next);
+      localStorage.setItem('theme', next);
+    }
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      document.documentElement.setAttribute('data-theme', savedTheme);
+    }
+  </script>
+</body>
+</html>
