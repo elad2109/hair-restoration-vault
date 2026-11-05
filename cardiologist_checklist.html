@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>דף תזכורת לקרדיולוג בדבלין • בדיקות ומכתב אישור לניתוח</title>
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #111827;
+      --surface-card: #1a2234;
+      --border: #2d3748;
+      --primary: #38bdf8;
+      --primary-hover: #0284c7;
+      --accent: #22c55e;
+      --warning: #f59e0b;
+      --danger: #ef4444;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+    }
+    :root[data-theme="light"] {
+      --bg: #f8fafc;
+      --surface: #ffffff;
+      --surface-card: #f1f5f9;
+      --border: #e2e8f0;
+      --primary: #0284c7;
+      --primary-hover: #0369a1;
+      --accent: #16a34a;
+      --warning: #d97706;
+      --danger: #dc2626;
+      --text: #0f172a;
+      --text-muted: #64748b;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      padding-bottom: 60px;
+    }
+    .container {
+      max-width: 950px;
+      margin: 0 auto;
+      padding: 20px 16px;
+    }
+    header {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px;
+      margin-bottom: 24px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    }
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.15);
+      color: var(--primary);
+      font-size: 0.82rem;
+      font-weight: 700;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+    .theme-toggle {
+      background: var(--surface-card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+    h1 {
+      font-size: 1.7rem;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+    .bluf-box {
+      background: rgba(34, 197, 94, 0.1);
+      border-right: 4px solid var(--accent);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 14px;
+      font-size: 0.95rem;
+    }
+    html[dir="ltr"] .bluf-box {
+      border-right: none;
+      border-left: 4px solid var(--accent);
+    }
+    .section-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-bottom: 24px;
+    }
+    .section-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-bottom: 14px;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 0.9rem;
+    }
+    th, td {
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--border);
+      text-align: right;
+    }
+    html[dir="ltr"] th, html[dir="ltr"] td {
+      text-align: left;
+    }
+    th {
+      background: var(--surface-card);
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+    .code-block {
+      direction: ltr;
+      text-align: left;
+      background: #050811;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      font-size: 0.88rem;
+      color: #e2e8f0;
+      overflow-x: auto;
+      white-space: pre-wrap;
+      position: relative;
+      margin-top: 10px;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--text);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      cursor: pointer;
+    }
+    .copy-btn:hover {
+      background: var(--primary);
+      color: #000;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div style="display:flex; justify-content:flex-end; margin-bottom: 10px;">
+      <a href="http://go/cardiologist-checklist" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;padding:4px 12px;border-radius:999px;background:#eff6ff;color:#1e40af;border:1px solid #bfdbfe;font-family:monospace;font-size:12px;font-weight:700;text-decoration:none;">🔗 go/cardiologist-checklist</a>
+    </div>
+
+    <header>
+      <div class="header-top">
+        <span class="badge" data-he="דבלין • נובמבר 2026 • הכנה לפגישת קרדיולוג" data-en="Dublin • Nov 2026 • Cardiologist Prep">דבלין • נובמבר 2026 • הכנה לפגישת קרדיולוג</span>
+        <div style="display:flex;gap:8px;align-items:center;">
+          <button id="langBtnHe" class="theme-toggle" onclick="setLang('he')" aria-pressed="true">🇮🇱 עברית</button>
+          <button id="langBtnEn" class="theme-toggle" onclick="setLang('en')" aria-pressed="false">🇬🇧 English</button>
+          <button class="theme-toggle" onclick="toggleTheme()" data-he="🌓 תצוגה" data-en="🌓 Theme">🌓 תצוגה</button>
+        </div>
+      </div>
+      <h1 data-he="דף תזכורת וצ'ק-ליסט לפגישת הקרדיולוג בדבלין" data-en="Dublin Cardiologist Consultation Checklist &amp; Script">דף תזכורת וצ'ק-ליסט לפגישת הקרדיולוג בדבלין</h1>
+      <p style="color:var(--text-muted); font-size:0.95rem;" data-he="טקסטים מוכנים להצגה בטלפון מול הרופא: סמני מסתם BAV (Lp(a) ו-ApoB), בדיקות טרום-ניתוח לקראת ינואר, ומכתב אישור רפואי" data-en="Ready-to-use scripts on your phone: BAV valve markers (Lp(a), ApoB), pre-op bloods, and surgical clearance letter">טקסטים מוכנים להצגה בטלפון מול הרופא: סמני מסתם BAV (Lp(a) ו-ApoB), בדיקות טרום-ניתוח לקראת ינואר, ומכתב אישור רפואי</p>
+
+      <div class="bluf-box" data-he="📌 שורה תחתונה: מול קרדיולוג בית חולים בדבלין מבקשים אך ורק את מה ששייך לתחום מומחיותו (מסתם, שומנים טרשתיים, ובדיקות טרום-ניתוח לשאיבה בינואר). לא מבקשים הורמונים (טסטוסטרון) או ויטמינים ששייכים לרופא משפחה (GP). הצגת הרשימה הממוקדת הזו תוציא ממנו תוצאות רפואיות מושלמות ומכתב אישור חלק למרדים באתונה." data-en="📌 Bottom Line: Ask the hospital cardiologist strictly for what falls under their domain (valve calcification, atherogenic particles, and pre-op clearance for January). Do NOT ask for testosterone or multivitamins (which belong to a GP). Presenting this focused list guarantees clinical buy-in and a clean surgical clearance letter for Athens.">
+        <strong>📌 שורה תחתונה:</strong> מול קרדיולוג בית חולים בדבלין מבקשים אך ורק את מה ששייך לתחום מומחיותו (מסתם, שומנים טרשתיים, ובדיקות טרום-ניתוח לשאיבה בינואר). לא מבקשים הורמונים (טסטוסטרון) או ויטמינים ששייכים לרופא משפחה (GP). הצגת הרשימה הממוקדת הזו תוציא ממנו תוצאות רפואיות מושלמות ומכתב אישור חלק למרדים באתונה.
+      </div>
+    </header>
+
+    <!-- SECTION 1: WHAT TO ASK VS WHAT TO SKIP -->
+    <section class="section-card">
+      <h2 class="section-title" data-he="🎯 מה לבקש מהקרדיולוג לעומת מה מוגזם/להשאיר ל-GP" data-en="🎯 What to Ask the Cardiologist vs. What to Skip">🎯 מה לבקש מהקרדיולוג לעומת מה מוגזם/להשאיר ל-GP</h2>
+      <table>
+        <thead>
+          <tr>
+            <th data-he="בדיקה / בקשה" data-en="Test / Request">בדיקה / בקשה</th>
+            <th data-he="האם סביר מול קרדיולוג?" data-en="Reasonable for Cardiologist?">האם סביר מול קרדיולוג?</th>
+            <th data-he="נימוק קליני" data-en="Clinical Rationale">נימוק קליני</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Lipoprotein(a) [Lp(a)]</strong></td>
+            <td><strong style="color:var(--accent);">✅ סביר והכרחי ב-100%</strong></td>
+            <td>הנחיית איגוד הקרדיולוגיה האירופי (ESC) למטופלי BAV למניעת הסתיידות מסתמית.</td>
+          </tr>
+          <tr>
+            <td><strong>Apolipoprotein B (ApoB)</strong></td>
+            <td><strong style="color:var(--accent);">✅ סביר ב-100%</strong></td>
+            <td>ספירת חלקיקים מדויקת בהרבה מ-LDL רגיל. סטנדרט קרדיולוגי מודרני.</td>
+          </tr>
+          <tr>
+            <td><strong>Full Lipid Panel (שומנים מלא)</strong></td>
+            <td><strong style="color:var(--accent);">✅ שגרתי לגמרי</strong></td>
+            <td>כולסטרול כללי, HDL, LDL, טריגליצרידים.</td>
+          </tr>
+          <tr>
+            <td><strong>FBC (ספירת דם מלאה)</strong></td>
+            <td><strong style="color:var(--accent);">✅ שגרתי לגמרי</strong></td>
+            <td>בדיקת דם בסיסית שכל רופא מסמן בטופס בית החולים.</td>
+          </tr>
+          <tr>
+            <td><strong>Coagulation (PT/INR + aPTT)</strong></td>
+            <td><strong style="color:var(--accent);">✅ סביר (לקראת ניתוח)</strong></td>
+            <td>מציינים שיש פרוצדורה בינואר ומבקשים לכלול אותה באותו טופס.</td>
+          </tr>
+          <tr>
+            <td><strong>Renal Panel (תפקודי כליות)</strong></td>
+            <td><strong style="color:var(--accent);">✅ שגרתי לגמרי</strong></td>
+            <td>קריאטינין, eGFR ואלקטרוליטים (קשורים ישירות לתפקוד קרדיו-וסקולרי).</td>
+          </tr>
+          <tr>
+            <td><strong>hs-CRP (מדד דלקת רגיש)</strong></td>
+            <td><strong style="color:var(--accent);">✅ סביר מאוד</strong></td>
+            <td>מדד דלקת כרונית בכלי הדם.</td>
+          </tr>
+          <tr>
+            <td><strong>הורמונים (טסטוסטרון, SHBG)</strong></td>
+            <td><strong style="color:var(--danger);">❌ לא לבקש (מוגזם לקרדיולוג)</strong></td>
+            <td>שייך לאנדוקרינולוג/GP. בקשה מקרדיולוג תיראה מוזרה ולא מקצועית.</td>
+          </tr>
+          <tr>
+            <td><strong>מולטי-ויטמינים (B12, חומצה פולית)</strong></td>
+            <td><strong style="color:var(--danger);">❌ להשאיר ל-GP</strong></td>
+            <td>קרדיולוגים אינם עוסקים בניהול ויטמינים שגרתי.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- SECTION 2: SCRIPTS ON YOUR PHONE -->
+    <section class="section-card">
+      <h2 class="section-title" data-he="📱 טקסטים באנגלית להצגה או הקראה לקרדיולוג" data-en="📱 English Scripts to Read or Show to the Cardiologist">📱 טקסטים באנגלית להצגה או הקראה לקרדיולוג</h2>
+
+      <div style="margin-bottom:20px;">
+        <h3 style="color:var(--primary); margin-bottom:8px;" data-he="1. בקשת בדיקות הדם הממוקדות (Lp(a), ApoB וקרישה)" data-en="1. Requesting Blood Tests (Lp(a), ApoB, Coagulation)">1. בקשת בדיקות הדם הממוקדות (Lp(a), ApoB וקרישה)</h3>
+        <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:8px;" data-he="הראה לו את הטקסט הזה בטלפון או אמור לו באנגלית:" data-en="Show this text on your phone or read aloud:">הראה לו את הטקסט הזה בטלפון או אמור לו באנגלית:</p>
+        <div class="code-block" id="script1">
+<button class="copy-btn" onclick="copyText('script1')">📋 העתק</button>
+"Doctor, since I have a confirmed bicuspid aortic valve (BAV), I would like to establish my comprehensive baseline risk per ESC guidelines. Could we please include:
+
+1. Lipoprotein(a) [Lp(a)] - to assess my genetic risk for premature aortic valve calcification
+2. Apolipoprotein B (ApoB) - along with the standard lipid profile
+3. hs-CRP (High-Sensitivity CRP)
+4. FBC (Full Blood Count) &amp; Renal Profile (Urea &amp; Electrolytes, Creatinine)
+
+Additionally, I have an elective body-contouring procedure planned for mid-January. Could we also check my coagulation profile (PT / INR and aPTT) on this hospital requisition so I have it ready in advance?"
+        </div>
+      </div>
+
+      <div>
+        <h3 style="color:var(--primary); margin-bottom:8px;" data-he="2. בקשת מכתב אישור קרדיולוגי לניתוח בינואר (Clearance Letter)" data-en="2. Surgical Clearance Letter Request">2. בקשת מכתב אישור קרדיולוגי לניתוח בינואר (Clearance Letter)</h3>
+        <p style="color:var(--text-muted); font-size:0.88rem; margin-bottom:8px;" data-he="נוסח המכתב המדויק שאתה צריך עבור המנתח והמרדים באתונה:" data-en="Exact clearance letter wording required for Athens surgeon and anaesthetist:">נוסח המכתב המדויק שאתה צריך עבור המנתח והמרדים באתונה:</p>
+        <div class="code-block" id="script2">
+<button class="copy-btn" onclick="copyText('script2')">📋 העתק</button>
+"Could you also provide a brief medical clearance note stating that my bicuspid aortic valve is hemodynamically stable, my ventricular function is normal, and that there are no cardiovascular contraindications for undergoing an elective minor surgical procedure under local anesthesia (tumescent lidocaine with epinephrine) and light oral sedation?"
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      דף תזכורת זה מסונכרן בכספת הפרויקטים: <code>Projects/hair-restoration-vault</code> • נובמבר 2026
+    </footer>
+  </div>
+
+  <script>
+    function toggleTheme() {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme');
+      html.setAttribute('data-theme', current === 'dark' ? 'light' : 'dark');
+    }
+    function setLang(lang) {
+      const isHe = lang !== 'en';
+      document.documentElement.lang = isHe ? 'he' : 'en';
+      document.documentElement.dir = isHe ? 'rtl' : 'ltr';
+      document.getElementById('langBtnHe').setAttribute('aria-pressed', isHe ? 'true' : 'false');
+      document.getElementById('langBtnEn').setAttribute('aria-pressed', isHe ? 'false' : 'true');
+      document.querySelectorAll('[data-he][data-en]').forEach(el => {
+        el.textContent = isHe ? el.getAttribute('data-he') : el.getAttribute('data-en');
+      });
+    }
+    function copyText(id) {
+      const block = document.getElementById(id);
+      const text = block.innerText.replace('📋 העתק', '').trim();
+      if (navigator.clipboard) {
+        navigator.clipboard.writeText(text);
+        alert('הטקסט הועתק ללוח בהצלחה!');
+      }
+    }
+  </script>
+</body>
+</html>
